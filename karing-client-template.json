@@ -1,0 +1,30 @@
+{
+  "type": "vless",
+  "tag": "gcore-singbox",
+  "server": "你的自定义域名（Cloudflare 托管，绑定到 Worker）",
+  "server_port": 443,
+  "uuid": "你的UUID（与服务端 UUID 一致）",
+  "flow": "",
+  "transport": {
+    "type": "ws",
+    "path": "/db/你的高熵路径.iso（与服务端 WS_PATH 完全一致）",
+    "headers": {
+      "X-Proxy-Token": "你的WS_SECRET（与 Worker 变量 WS_SECRET 一致）"
+    },
+    "max_early_data": 2048,
+    "early_data_header_name": "Sec-WebSocket-Protocol"
+  },
+  "tls": {
+    "enabled": true,
+    "server_name": "你的自定义域名（与 server 一致）",
+    "insecure": false,
+    "utls": {
+      "enabled": true,
+      "fingerprint": "chrome"
+    }
+  },
+  "multiplex": {
+    "enabled": true,
+    "padding": false
+  }
+}
